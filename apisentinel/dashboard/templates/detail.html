@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="grid gap-6 lg:grid-cols-3">
+  <section class="lg:col-span-2 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <div class="flex flex-wrap items-start justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold">Report Details</h1>
+        <p class="mt-1 text-sm text-slate-400">{{ result.target }}</p>
+      </div>
+      <div class="text-right">
+        <div class="text-5xl font-black {% if result.summary.score >= 80 %}text-emerald-300{% elif result.summary.score >= 50 %}text-amber-300{% else %}text-red-300{% endif %}">{{ result.summary.score }}</div>
+        <div class="text-xs text-slate-400">Security Score</div>
+      </div>
+    </div>
+    <div class="mt-6 space-y-4">
+      {% for finding in result.findings %}
+      <article class="rounded-xl border border-slate-800 bg-slate-950 p-5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <h2 class="font-bold">{{ finding.title }}</h2>
+          <span class="rounded-full px-2 py-1 text-xs font-bold uppercase {% if finding.severity.value in ['critical','high'] %}bg-red-400/20 text-red-200{% elif finding.severity.value == 'medium' %}bg-amber-400/20 text-amber-200{% else %}bg-slate-700 text-slate-200{% endif %}">{{ finding.severity.value }}</span>
+        </div>
+        {% if finding.endpoint %}<div class="mt-2 font-mono text-sm text-cyan-200">{{ finding.method }} {{ finding.endpoint }}</div>{% endif %}
+        <p class="mt-3 text-sm text-slate-300">{{ finding.description }}</p>
+        <p class="mt-2 text-sm text-slate-400"><strong>Why it matters:</strong> {{ finding.why_it_matters }}</p>
+        {% if finding.ai %}
+        <div class="mt-4 rounded-xl bg-slate-900 p-4 text-sm">
+          <div class="font-semibold text-cyan-200">AI Security Analysis</div>
+          <p class="mt-2"><strong>Explanation:</strong> {{ finding.ai.explanation }}</p>
+          <p class="mt-2"><strong>Attack scenario:</strong> {{ finding.ai.attack_scenario }}</p>
+          <p class="mt-2"><strong>Recommended fix:</strong> {{ finding.ai.recommended_fix }}</p>
+        </div>
+        {% endif %}
+      </article>
+      {% else %}
+      <div class="rounded-xl border border-dashed border-slate-700 p-6 text-center text-slate-400">No findings detected.</div>
+      {% endfor %}
+    </div>
+  </section>
+  <aside class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h2 class="mb-4 text-xl font-bold">Summary</h2>
+    <div class="space-y-3 text-sm">
+      <div class="flex justify-between"><span class="text-slate-400">Scan ID</span><span class="font-mono">{{ result.id[:8] }}</span></div>
+      <div class="flex justify-between"><span class="text-slate-400">Findings</span><span>{{ result.summary.findings_count }}</span></div>
+      <div class="flex justify-between"><span class="text-slate-400">Endpoints</span><span>{{ result.discovery.endpoints|length }}</span></div>
+      <div class="flex justify-between"><span class="text-slate-400">OpenAPI</span><span>{{ 'yes' if result.discovery.openapi_url else 'file/none' }}</span></div>
+    </div>
+    <div class="mt-6 flex flex-col gap-2 text-center text-sm">
+      <a class="rounded-lg bg-slate-800 px-3 py-2 hover:bg-slate-700" href="/api/scans/{{ result.id }}/report?format=json">JSON Report</a>
+      <a class="rounded-lg bg-slate-800 px-3 py-2 hover:bg-slate-700" href="/api/scans/{{ result.id }}/report?format=markdown">Markdown Report</a>
+      <a class="rounded-lg bg-slate-800 px-3 py-2 hover:bg-slate-700" href="/api/scans/{{ result.id }}/report?format=html">HTML Report</a>
+    </div>
+  </aside>
+</div>
+{% endblock %}

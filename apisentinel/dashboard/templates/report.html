@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>APISentinel Report</title>
+  <style>
+    body{font-family:Inter,Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:32px}.wrap{max-width:980px;margin:auto}.card{background:#111827;border:1px solid #334155;border-radius:16px;padding:24px;margin:16px 0}.score{font-size:56px;font-weight:900}.sev{display:inline-block;border-radius:999px;padding:4px 10px;background:#334155;text-transform:uppercase;font-size:12px}.high,.critical{background:#7f1d1d}.medium{background:#78350f}.low{background:#334155}code{color:#67e8f9}
+  </style>
+</head>
+<body><main class="wrap">
+  <h1>APISentinel Report</h1>
+  <p>{{ result.target }} • {{ result.created_at.isoformat() }}</p>
+  <section class="card"><div class="score">{{ result.summary.score }}/100</div><p>{{ result.summary.findings_count }} findings</p></section>
+  <section class="card"><h2>Summary</h2>{% for severity, count in result.summary.severity_distribution.items() %}<p>{{ severity }}: {{ count }}</p>{% endfor %}</section>
+  {% for finding in result.findings %}
+  <article class="card">
+    <span class="sev {{ finding.severity.value }}">{{ finding.severity.value }}</span>
+    <h2>{{ finding.title }}</h2>
+    {% if finding.endpoint %}<p><code>{{ finding.method }} {{ finding.endpoint }}</code></p>{% endif %}
+    <p>{{ finding.description }}</p>
+    <p><strong>Why it matters:</strong> {{ finding.why_it_matters }}</p>
+    {% if finding.ai %}<h3>AI Security Analysis</h3><p><strong>Explanation:</strong> {{ finding.ai.explanation }}</p><p><strong>Attack scenario:</strong> {{ finding.ai.attack_scenario }}</p><p><strong>Recommended fix:</strong> {{ finding.ai.recommended_fix }}</p>{% endif %}
+  </article>
+  {% endfor %}
+</main></body></html>

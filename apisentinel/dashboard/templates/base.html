@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" class="h-full bg-slate-950">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}APISentinel{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <style>[hx-indicator]{display:none;} .htmx-request [hx-indicator], .htmx-request.hx-indicator{display:inline-flex;} </style>
+</head>
+<body class="min-h-full bg-slate-950 text-slate-100">
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <nav class="mb-8 flex items-center justify-between rounded-2xl border border-slate-800 bg-slate-900/70 px-5 py-4 shadow-xl">
+      <a href="/" class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400 font-black text-slate-950">A</div>
+        <div>
+          <div class="text-lg font-bold">APISentinel</div>
+          <div class="text-xs text-slate-400">AI-powered API security scanner</div>
+        </div>
+      </a>
+      <div class="flex gap-4 text-sm text-slate-300">
+        <a class="hover:text-cyan-300" href="/">Overview</a>
+        <a class="hover:text-cyan-300" href="/scans">Scan History</a>
+        <a class="hover:text-cyan-300" href="/findings">Findings</a>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

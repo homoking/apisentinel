@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+  <h1 class="mb-5 text-2xl font-bold">Findings</h1>
+  <div class="space-y-4">
+  {% for scan, finding in findings %}
+    <a href="/scans/{{ scan.id }}" class="block rounded-xl border border-slate-800 bg-slate-950 p-4 hover:border-cyan-400/60">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="rounded-full px-2 py-1 text-xs font-bold uppercase {% if finding.severity.value in ['critical','high'] %}bg-red-400/20 text-red-200{% elif finding.severity.value == 'medium' %}bg-amber-400/20 text-amber-200{% else %}bg-slate-700 text-slate-200{% endif %}">{{ finding.severity.value }}</span>
+          <span class="ml-2 font-semibold">{{ finding.title }}</span>
+        </div>
+        <div class="text-sm text-slate-400">{{ scan.target }}</div>
+      </div>
+      <p class="mt-3 text-sm text-slate-300">{{ finding.description }}</p>
+    </a>
+  {% else %}
+    <div class="rounded-xl border border-dashed border-slate-700 p-6 text-center text-slate-400">No findings yet.</div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

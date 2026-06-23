@@ -1,0 +1,181 @@
+# ===========================================================
+#  APISentinel — .gitignore
+# ===========================================================
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+wheels/
+share/python-wheels/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+MANIFEST
+
+# -----------------------------
+# Virtual environments
+# -----------------------------
+.venv/
+venv/
+env/
+ENV/
+.env.venv/
+.python-version
+
+# -----------------------------
+# Environment / Secrets
+# -----------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+.secrets.baseline
+
+# -----------------------------
+# APISentinel runtime data
+# -----------------------------
+apisentinel.db
+apisentinel.db-journal
+*.sqlite
+*.sqlite3
+*.db
+data/
+.data/
+reports/output/
+scan_results/
+*.report.html
+*.report.json
+*.report.md
+
+# -----------------------------
+# Logs
+# -----------------------------
+*.log
+logs/
+.ze/logs/
+nohup.out
+
+# -----------------------------
+# Testing / Coverage
+# -----------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.cache/
+
+# -----------------------------
+# Type checkers / Linters
+# -----------------------------
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.ruff_cache/
+.pylint.d/
+
+# -----------------------------
+# Jupyter / IPython
+# -----------------------------
+.ipynb_checkpoints/
+profile_default/
+ipython_config.py
+
+# -----------------------------
+# FastAPI / Uvicorn
+# -----------------------------
+*.pid
+*.sock
+
+# -----------------------------
+# Frontend (Tailwind / Node)
+# -----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.parcel-cache/
+.next/
+.nuxt/
+.cache/
+dist/
+build/
+
+# Tailwind generated CSS (keep source, ignore build)
+apisentinel/dashboard/static/css/tailwind.build.css
+
+# -----------------------------
+# Docker
+# -----------------------------
+*.pid
+docker-compose.override.yml
+.docker/
+
+# -----------------------------
+# IDEs / Editors
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*~
+.project
+.pydevproject
+.settings/
+.spyderproject
+.spyproject
+.ropeproject
+
+# -----------------------------
+# OS-specific
+# -----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# -----------------------------
+# Misc
+# -----------------------------
+*.zip
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+.tmp/
+tmp/
+temp/
