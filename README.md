@@ -1,13 +1,22 @@
-&lt;p align="center"&gt; &lt;img src="https://img.shields.io/badge/APISentinel-AI%20Powered%20API%20Security%20Scanner-06b6d4?style=for-the-badge&labelColor=0f172a" alt="APISentinel Banner"/&gt; &lt;/p&gt;
+🛡️ APISentinel
+<div align="center">
+AI-powered API Security Scanner — find, understand, and fix API vulnerabilities in minutes.
 
-&lt;h1 align="center"&gt;🛡️ APISentinel&lt;/h1&gt;
+PythonFastAPISQLAlchemyHTMXTailwindCSSLicense: MITPRs Welcome
 
-&lt;p align="center"&gt; &lt;strong&gt;AI-Powered API Security Scanner for Developers&lt;/strong&gt;&lt;br/&gt; Discover endpoints. Detect vulnerabilities. Get actionable fixes — in minutes. &lt;/p&gt;
+A polished, open-source developer tool to audit your APIs — install in minutes, use immediately.
 
-&lt;p align="center"&gt; &lt;a href="#-quick-start"&gt;&lt;img src="https://img.shields.io/badge/-Quick%20Start-06b6d4?style=flat-square" alt="Quick Start"/&gt;&lt;/a&gt; &lt;a href="#-features"&gt;&lt;img src="https://img.shields.io/badge/-Features-06b6d4?style=flat-square" alt="Features"/&gt;&lt;/a&gt; &lt;a href="#-dashboard"&gt;&lt;img src="https://img.shields.io/badge/-Dashboard-06b6d4?style=flat-square" alt="Dashboard"/&gt;&lt;/a&gt; &lt;a href="#-cli"&gt;&lt;img src="https://img.shields.io/badge/-CLI-06b6d4?style=flat-square" alt="CLI"/&gt;&lt;/a&gt; &lt;a href="#-api"&gt;&lt;img src="https://img.shields.io/badge/-API-06b6d4?style=flat-square" alt="API"/&gt;&lt;/a&gt; &lt;/p&gt;
+Features • Quick Start • CLI • Dashboard • Architecture • Contributing
 
-&lt;p align="center"&gt; &lt;img src="https://img.shields.io/badge/python-3.11+-3776ab?style=flat-square&logo=python&logoColor=white" alt="Python 3.11+"/&gt; &lt;img src="https://img.shields.io/badge/FastAPI-0.111+-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/&gt; &lt;img src="https://img.shields.io/badge/SQLAlchemy-2.0+-d71f00?style=flat-square" alt="SQLAlchemy"/&gt; &lt;img src="https://img.shields.io/badge/HTMX-1.9+-3366cc?style=flat-square" alt="HTMX"/&gt; &lt;img src="https://img.shields.io/badge/Tailwind_CSS-3.x-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white" alt="Tailwind"/&gt; &lt;img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License"/&gt; &lt;/p&gt;
+</div>
+🎯 What is APISentinel?
+APISentinel scans your APIs the way a security engineer would — but in seconds, not days.
 
+It automatically discovers your endpoints from OpenAPI/Swagger docs, runs a battery of security checks (auth, JWT, rate limiting, headers, dangerous methods, IDOR indicators, public docs exposure), and produces plain-English explanations, realistic attack scenarios, and actionable fixes for every finding.
+
+Everything is wrapped in a modern HTMX + Tailwind dashboard, a fast Typer CLI, and a clean architecture you can extend in a single afternoon.
+
+🧠 Built for developers who want the insight of a pentester without the complexity of one.
 ---
 
 ## 📋 Table of Contents
@@ -619,4 +628,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-&lt;p align="center"&gt; &lt;br/&gt; &lt;strong&gt;Built with ❤️ for developers who care about API security.&lt;/strong&gt; &lt;br/&gt;&lt;br/&gt; &lt;a href="#-apisentinel"&gt;⬆ Back to top&lt;/a&gt; &lt;/p&gt;
+If APISentinel saves you from a breach, give it a ⭐ on GitHub.
+
+Made with 🛡️ for developers who care about security.
